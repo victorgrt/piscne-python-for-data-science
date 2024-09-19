@@ -7,11 +7,11 @@ def main():
 
     print("\033[1;32m# BASIC TEST #\033[0m")
     print(ft_load("landscape.jpg"))
-    
+
     print(ft_load("animal.jpeg"))
-    
+
     print(ft_load("vgoret.jpg"))
-    
+
     print("\n\033[1;31m# ERROR HANDLING #\033[0m", end="\n")
     print(ft_load("coucou.jpg"))
     print(ft_load("animal.jpg"))

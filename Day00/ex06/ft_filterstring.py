@@ -12,7 +12,7 @@ def main():
         string = sys.argv[1]
         try:
             _len = int(sys.argv[2])
-        except ValueError as error:
+        except ValueError:
             raise AssertionError("\033[31mPlease enter an int\033[3;32m\
             \nUsage : python3 ft_filterstring.py <string> <int> !\033[0m")
 
