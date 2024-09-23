@@ -1,7 +1,5 @@
-from load_image import ft_load
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def ft_invert(array) -> np.ndarray:
@@ -42,13 +40,19 @@ def ft_green(array) -> np.ndarray:
 \033[1;32mChanges pixels color to GREEN.\033[0m
     """
     clear_green_channel = array[:, :, 1]
-    green_channel  = np.zeros_like(array)
+    green_channel = np.zeros_like(array)
     green_channel[:, :, 1] = clear_green_channel
     Image.fromarray(green_channel).show()
     return (green_channel)
 
 
-# def ft_gray(array) -> np.ndarray:
-#     """
-# \033[1;31mChanges pixels color to GRAY.\033[0m
-#     """
+def ft_grey(array) -> np.ndarray:
+    """
+\033[1;30mChanges pixels color to GREY.\033[0m
+    """
+    red_channel = array[:, :, 0] / 3
+    green_channel = array[:, :, 1] / 3
+    blue_channel = array[:, :, 2] / 3
+    grey_channel = red_channel + green_channel + blue_channel
+    Image.fromarray(grey_channel).show()
+    return (grey_channel)

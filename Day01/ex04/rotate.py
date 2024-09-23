@@ -1,5 +1,4 @@
 from load_image import ft_load
-from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -11,10 +10,11 @@ def main():
 
     squarred_img_array = img_array[200:500, 500:800]
 
-    print(f"\n\033[1m\033[4mNew shape after slicing: {squarred_img_array.shape}\033[0m")
+    print(f"\n\033[1m\033[4mNew shape after slicing: \
+{squarred_img_array.shape}\033[0m")
     print(squarred_img_array[:2])
 
-    plt.rcParams['toolbar'] = 'None' 
+    plt.rcParams['toolbar'] = 'None'
     fig, ax = plt.subplots()
     fig.canvas.manager.set_window_title('🦝 MR. RACOON 🦝')
 
