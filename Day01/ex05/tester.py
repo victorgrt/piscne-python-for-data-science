@@ -44,13 +44,13 @@ def main():
             print("\033[1;32m# DOCUMENTATION #\033[0m", end="")
             print(ft_invert.__doc__)
         else:
-            print("\033[1;31mBad argument : only inverted, green, red, blue and grey are accepted !\033[0m")
+            print("\033[1;31mBad argument : only inverted, \
+green, red, blue and grey are accepted !\033[0m")
         return
     else:
         print("\033[1;31mWrong number of arguments.\033[0m")
         return
-    
 
 
 if __name__ == "__main__":
-	main()
+    main()
