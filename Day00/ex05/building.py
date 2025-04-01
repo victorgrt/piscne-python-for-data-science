@@ -7,9 +7,7 @@ def printResult(object: list) -> None:
     - \033[33mNAME: printResult\033[0m
     - \033[34mARG: list\033[0m
     - \033[35mRETURN VALUE: None\033[0m
-\033[1;37mDisplays the sums of its upper-case characters, lower-case \
-characters, punctuation characters, digits and spaces.
-    - Displays the sums of all characters contained in ARG.\033[0m
+\033[1;37m- Displays the sums of all characters contained in ARG.\033[0m
     """
     print("\033[1mThe text contains\033[1;34m", object[0],
           '\033[0m\033[1mcharacters:\033[0m')
@@ -21,6 +19,15 @@ characters, punctuation characters, digits and spaces.
 
 
 def examinateString() -> None:
+    """
+\033[1;33mexaminateString\033[0m:
+    - \033[33mNAME: examinateString\033[0m
+    - \033[34mARG: None\033[0m
+    - \033[35mRETURN VALUE: None\033[0m
+\033[1;37m- Asks for input then examinate it count upper-case, lower-case,\
+punctuation, digits and space characters. Calls \
+\33[33mprintResult\33[0m to print result.\033[0m
+    """
     try:
         if len(sys.argv) > 2:
             raise AssertionError("AssertionError:\

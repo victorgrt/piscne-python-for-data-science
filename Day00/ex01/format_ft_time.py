@@ -10,7 +10,6 @@ print("Il s'est ecoule environ\033[92m", time_since,
 
 time_struct = time.localtime()
 
-# DICTIONNARY FOR EACH MONTHS
 str_month = {1: "Jan",
              2: "Feb",
              3: "Mar",
@@ -24,10 +23,6 @@ str_month = {1: "Jan",
              11: "Nov",
              12: "Dec"
              }
-
-# PRINTING MONTHS
-# for i in str_month :
-# 	print(str_month[i])
 
 month = time_struct[1]
 
