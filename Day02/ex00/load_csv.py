@@ -16,20 +16,20 @@ def load(path: str) -> pd.DataFrame: #none == dataset
 - Returns the dataset.\033[0m
 	"""
 	try:
-		if os.path.isfile(path) is False:
-			raise AssertionError("\033[1;31mError raised : " + path + " not found\033[0m")
 		if path.endswith('.csv') is False:
-			raise AssertionError("\033[1;31mError raised : Bad file extension\033[0m")
+			raise AssertionError("\033[1;31mAssertionError: Bad file extension.\033[0m")
+		if os.path.isfile(path) is False:
+			raise AssertionError("\033[1;31mAssertionError: \"" + path + "\" not found.\033[0m")
+		if os.access(path, os.R_OK) is False:
+			print("didnt get here")
+			raise AssertionError("\033[1;31mAssertionError: Bad permission.\033[0m")
 		dataset = pd.read_csv("life_expectancy_years.csv")
 		print("Loading dataset of dimensions ", dataset.shape, ".", sep="")
 		first_five_rows = dataset.head(5)
-
-		# PRINT ALL DATASET
-		# print(dataset.to_string(), sep='\n', end='\n')
 		return dataset
+
 	except AssertionError as error:
-		print(error)
-		raise AssertionError
+		return error
 	return None
 
 
@@ -41,7 +41,7 @@ def main():
 			try:
 				load(sys.argv[1])
 			except AssertionError as error:
-				print(error)
+				print("AssertionError:", error)
 				return
 
 		else:

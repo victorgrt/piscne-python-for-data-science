@@ -17,7 +17,7 @@ def draw_compare_data_set(dataset: pd.DataFrame):
     fr_years = fr_data.columns[1:].astype(float)
     fr_population = convert_to_float(fr_data.values[0][1:])
 
-    jp_data = dataset[dataset['country'] == 'Belgium']
+    jp_data = dataset[dataset['country'] == 'Japan']
     jp_years = jp_data.columns[1:].astype(float)
     jp_population = convert_to_float(jp_data.values[0][1:])
 

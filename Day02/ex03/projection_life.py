@@ -1,35 +1,53 @@
 from load_csv import load
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 
-
-def projection_life():
-    def draw_compare_data_set(dataset: pd.DataFrame):
-    # NEED TO GET THE GOOD DATAS 
-
-    # fr_data = dataset[dataset['country'] == 'France']
-    # fr_years = fr_data.columns[1:].astype(float)
-    # fr_population = convert_to_float(fr_data.values[0][1:])
-
-    # jp_data = dataset[dataset['country'] == 'Belgium']
-    # jp_years = jp_data.columns[1:].astype(float)
-    # jp_population = convert_to_float(jp_data.values[0][1:])
-
+def projection_life(income: pd.DataFrame, life: pd.DataFrame, year: str = "1900"):
+    """Plot GDP per capita vs. life expectancy for a given year."""
     plt.rcParams['toolbar'] = 'None'
     plt.rcParams['legend.loc'] = 'lower right'
-    fig, ax = plt.subplots()
 
-    # PROBABLY HAVE TO USE SCATTER
-    # ax.scatter(delta1[:-1], delta1[1:], c=close, s=volume, alpha=0.5)
-    plt.xlabel("Year")
-    plt.ylabel("Population")
-    plt.plot(fr_years, fr_population, color='tab:red', label='France')
-    plt.plot(jp_years, jp_population, color='tab:blue', label='Japan')
-    ax.set_xlim(300, 10000)
-    ax.yaxis.set_major_formatter(FuncFormatter(millions_formatter)) 
-    fig.canvas.manager.set_window_title('Compare Graph')
-    plt.title('1900')
-    
-    plt.legend()
+
+    # Ensure 'country' is used as an index
+    income.set_index("country", inplace=True)
+    life.set_index("country", inplace=True)
+
+    # Convert the year column to numeric (in case of string format)
+    income[year] = pd.to_numeric(income[year], errors='coerce')
+    life[year] = pd.to_numeric(life[year], errors='coerce')
+
+    # Drop rows with missing values
+    data = pd.DataFrame({
+        "GDP": income[year],
+        "Life Expectancy": life[year]
+    }).dropna()
+
+    # Plot
+    plt.figure(figsize=(8, 6))
+    plt.scatter(data["GDP"], data["Life Expectancy"], alpha=0.7, edgecolors="k")
+
+    plt.xlabel("Gross Domestic Product (GDP per capita)")
+    plt.ylabel("Life Expectancy (years)")
+
+    plt.title('Life Expectancy vs GDP in 1900')
     plt.show()
+
+
+# def projection_life(income: pd.DataFrame, life: pd.DataFrame):
+
+#     plt.rcParams['toolbar'] = 'None'
+#     plt.rcParams['legend.loc'] = 'lower right'
+#     fig, ax = plt.subplots()
+
+#     plt.xlabel("Gross domestic product")
+#     plt.ylabel("Life Expectancy")
+#     ax.set_xlim(300, 10000)
+#     fig.canvas.manager.set_window_title('Compare Graph')
+#     plt.title('1900')
+    
+#     plt.legend()
+#     plt.show()
 
 
 def main():
@@ -38,7 +56,8 @@ def main():
     life = load("life_expectancy_years.csv")
 
     print(income)
-
+    print(life)
+    projection_life(income, life, year="1900")
 
 if __name__ == "__main__":
     main()

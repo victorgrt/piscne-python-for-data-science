@@ -20,12 +20,12 @@ def load(path: str) -> pd.DataFrame: #none == dataset
 			raise AssertionError("\033[1;31mError raised : " + path + " not found\033[0m")
 		if path.endswith('.csv') is False:
 			raise AssertionError("\033[1;31mError raised : Bad file extension\033[0m")
+		if os.access(path, os.R_OK) is False:
+			raise AssertionError("\033[1;31mAssertionError: Bad permission.\033[0m")
 		dataset = pd.read_csv(path)
 		print("Loading dataset of dimensions ", dataset.shape, ".", sep="")
 		first_five_rows = dataset.head(5)
 
-		# PRINT ALL DATASET
-		# print(dataset.to_string(), sep='\n', end='\n')
 		return dataset
 	except AssertionError as error:
 		print(error)
