@@ -5,16 +5,26 @@ class Character(ABC):
     """
     """
     @abstractmethod
-    def __init__(self, first_name: str, is_alive=True):
+    def __init__(self, first_name: str, family_name:str , is_alive=True):
         """
         """
-        self._name = first_name
-        self._is_alive = is_alive
+        self.first_name = first_name
+        self.is_alive = is_alive
+        self.family_name = family_name
 
     def die(self):
         """
         """
         pass
+    
+    def __str__(self):
+        """"""
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
+    
+    def __repr__(self):
+        """"""
+        return self.__str__()
+
     
 
 class Stark(Character):
@@ -23,7 +33,7 @@ class Stark(Character):
     def __init__(self, first_name: str, is_alive=True):
         """
         """
-        self.name = first_name
+        self.first_name = first_name
         self.is_alive = is_alive
         
         
@@ -36,10 +46,10 @@ class Stark(Character):
 def main():
     Perso = Stark("Kirikou", True)
     print(Perso)
-    print(Perso._name)
-    print(Perso._is_alive)
+    print(Perso.first_name)
+    print(Perso.is_alive)
     Perso.die()
-    print(Perso._is_alive)
+    print(Perso.is_alive)
     
 
 if __name__ == "__main__":
