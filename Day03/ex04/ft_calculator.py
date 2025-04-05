@@ -15,7 +15,6 @@ class calculator:
             vector.append(float(V1[x] + V2[x]))
         print("Add Vector is: ", vector)
 
-
     @staticmethod
     def sous_vec(V1: list[float], V2: list[float]) -> None:
         """static method to calculate soustraction."""
@@ -23,7 +22,7 @@ class calculator:
         for x in range(0, len(V1)):
             vector.append(float(V1[x] - V2[x]))
         print("Sous Vector is:", vector)
- 
+
 
 def main():
     pass
