@@ -3,8 +3,8 @@ from S1E9 import Character
 class Baratheon(Character):
     """Representating the Baratheon family."""
     def __init__(self, first_name: str, is_alive=True):
-        """ 
-        """
+        """super() gives you access to methods from a superclass from the 
+        subclasses that inherit from them."""
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
         self.eyes = "brown"
@@ -35,3 +35,11 @@ class Lannister(Character):
         instance = cls(first_name)
         instance.is_alive = is_alive        
         return instance
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
