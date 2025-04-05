@@ -2,6 +2,7 @@ class calculator:
     
     @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
+        """"""
         vector = []
         for x in range(0, len(V1)):
             vector.append(float(V1[x] * V2[x]))
@@ -13,6 +14,7 @@ class calculator:
 
     @staticmethod
     def add_vec(V1: list[float], V2: list[float]) -> None:
+        """"""
         vector = []
         for x in range(0, len(V1)):
             vector.append(float(V1[x] + V2[x]))
@@ -21,6 +23,7 @@ class calculator:
 
     @staticmethod
     def sous_vec(V1: list[float], V2: list[float]) -> None:
+        """"""
         vector = []
         for x in range(0, len(V1)):
             vector.append(float(V1[x] - V2[x]))
