@@ -1,11 +1,10 @@
 import sys
-import csv
 import pandas as pd
 import os
 
 
-def load(path: str) -> pd.DataFrame: #none == dataset
-	"""
+def load(path: str) -> pd.DataFrame:
+    """
 \033[1;33mload\033[0m:
 - \033[33mNAME: load\033[0m
 - \033[34mARG: str\033[0m
@@ -14,44 +13,44 @@ def load(path: str) -> pd.DataFrame: #none == dataset
 - Loads the file from ARG.
 - Prints infos.
 - Returns the dataset.\033[0m
-	"""
-	try:
-		if os.path.isfile(path) is False:
-			raise AssertionError("\033[1;31mError raised : " + path + " not found\033[0m")
-		if path.endswith('.csv') is False:
-			raise AssertionError("\033[1;31mError raised : Bad file extension\033[0m")
-		if os.access(path, os.R_OK) is False:
-			raise AssertionError("\033[1;31mAssertionError: Bad permission.\033[0m")
-		dataset = pd.read_csv(path)
-		print("Loading dataset of dimensions ", dataset.shape, ".", sep="")
-		first_five_rows = dataset.head(5)
+    """
+    try:
+        if os.path.isfile(path) is False:
+            err = "\033[1;31mError raised : " + path + " not found\033[0m"
+            raise AssertionError(err)
+        if path.endswith('.csv') is False:
+            err = "\033[1;31mError raised: Bad file extension\033[0m"
+            raise AssertionError(err)
+        if os.access(path, os.R_OK) is False:
+            err = "\033[1;31mAssertionError: Bad permission.\033[0m"
+            raise AssertionError(err)
+        dataset = pd.read_csv(path)
+        print("Loading dataset of dimensions ", dataset.shape, ".", sep="")
 
-		# PRINT ALL DATASET
-		# print(dataset.to_string(), sep='\n', end='\n')
-		return dataset
-	except AssertionError as error:
-		print(error)
-		raise AssertionError
-	return None
+        return dataset
+    except AssertionError as error:
+        print(error)
+        raise AssertionError
+    return None
 
 
 def main():
-	try:
-		if len(sys.argv) == 2:
-			print(sys.argv)
+    try:
+        if len(sys.argv) == 2:
+            print(sys.argv)
 
-			try:
-				load(sys.argv[1])
-			except AssertionError as error:
-				print(error)
-				return
+            try:
+                load(sys.argv[1])
+            except AssertionError as error:
+                print(error)
+                return
 
-		else:
-			print("\033[1;31mAssertionError: Too many arguments\033[0m")
-			raise AssertionError
-	except AssertionError:
-		return
+        else:
+            print("\033[1;31mAssertionError: Too many arguments\033[0m")
+            raise AssertionError
+    except AssertionError:
+        return
 
 
 if __name__ == "__main__":
-	main()
+    main()

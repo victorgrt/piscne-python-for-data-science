@@ -9,7 +9,8 @@ def draw_data_set(dataset: pd.DataFrame):
 - \033[33mNAME: draw_data_set\033[0m
 - \033[34mARG: dataset\033[0m
 - \033[35mRETURN VALUE: None\033[0m
-\033[1;37mSelects data from a country then displays it in a graph using matplotlib.\033[0m
+\033[1;37mSelects data from a country then displays
+it in a graph using matplotlib.\033[0m
     """
     france_data = dataset[dataset['country'] == 'France']
     print(france_data)
@@ -22,7 +23,7 @@ def draw_data_set(dataset: pd.DataFrame):
     plt.xlabel("Year")
     plt.ylabel("Age")
     plt.plot(years, expectancy)
-    ax.set_xlim(1800, 2100) 
+    ax.set_xlim(1800, 2100)
     fig.canvas.manager.set_window_title('🥖 FRANCE 🇫🇷')
     plt.title('France life expectancy Projections')
     plt.show()

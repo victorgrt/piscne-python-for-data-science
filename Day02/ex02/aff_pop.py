@@ -29,10 +29,10 @@ def draw_compare_data_set(dataset: pd.DataFrame):
     plt.plot(fr_years, fr_population, color='tab:red', label='France')
     plt.plot(jp_years, jp_population, color='tab:blue', label='Japan')
     ax.set_xlim(1800, 2050)
-    ax.yaxis.set_major_formatter(FuncFormatter(millions_formatter)) 
+    ax.yaxis.set_major_formatter(FuncFormatter(millions_formatter))
     fig.canvas.manager.set_window_title('Compare Graph')
     plt.title('Population Projections')
-    
+
     plt.legend()
     plt.show()
 
@@ -40,6 +40,7 @@ def draw_compare_data_set(dataset: pd.DataFrame):
 def main():
     dataset = load("population_total.csv")
     draw_compare_data_set(dataset)
+
 
 if __name__ == "__main__":
     main()
