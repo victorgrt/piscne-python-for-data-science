@@ -30,7 +30,7 @@ def load(path: str) -> pd.DataFrame:
         return dataset
     except AssertionError as error:
         print(error)
-        raise AssertionError
+        return
     return None
 
 
