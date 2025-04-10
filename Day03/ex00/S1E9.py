@@ -2,20 +2,22 @@ from abc import ABC, abstractmethod
 
 
 class Character(ABC):
+    """Abstract class Character with name and isalive attributes."""
     @abstractmethod
     def __init__(self, first_name: str, is_alive=True):
-        """Init attributes using arguments."""
+        """Constructor for Character Class"""
         self.name = first_name
         self.is_alive = is_alive
 
     def die(self):
-        """No need to do it here right?"""
+        """Will be implemented in subclasses."""
         pass
 
 
 class Stark(Character):
+    """Stark Class, subclass from Character"""
     def __init__(self, first_name: str, is_alive=True):
-        """Init attributes using arguments."""
+        """Constructor for Stark Class"""
         self.name = first_name
         self.is_alive = is_alive
 
@@ -25,12 +27,7 @@ class Stark(Character):
 
 
 def main():
-    Perso = Stark("Kirikou", True)
-    print(Perso)
-    print(Perso._name)
-    print(Perso._is_alive)
-    Perso.die()
-    print(Perso._is_alive)
+    pass
 
 
 if __name__ == "__main__":

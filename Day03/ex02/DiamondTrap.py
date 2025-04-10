@@ -2,6 +2,7 @@ from S1E7 import Baratheon, Lannister
 
 
 class King(Baratheon, Lannister):
+    """La classe d'etre un Roi enfaite."""
     def __init__(self, first_name, is_alive=True):
         """Init using arguments. Super() is used \
         to get access to init from inherited class."""

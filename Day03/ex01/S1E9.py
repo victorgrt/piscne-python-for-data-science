@@ -35,12 +35,7 @@ class Stark(Character):
 
 
 def main():
-    Perso = Stark("Kirikou", True)
-    print(Perso)
-    print(Perso.first_name)
-    print(Perso.is_alive)
-    Perso.die()
-    print(Perso.is_alive)
+    pass
 
 
 if __name__ == "__main__":

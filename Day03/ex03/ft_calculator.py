@@ -1,4 +1,5 @@
 class calculator:
+    """Calculator class with methods to calculate"""
     def __init__(self, vector):
         """Inits the class with content inside a vector."""
         self.vector = vector
@@ -27,7 +28,7 @@ class calculator:
             self.vector = [number / object for number in self.vector]
         except ZeroDivisionError:
             return print("\033[31;1mZeroDivisionError: \
-            float division by zero\033[0m")
+float division by zero\033[0m")
         print(self.vector)
         return [number for number in self.vector]
 

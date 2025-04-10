@@ -1,4 +1,5 @@
 class calculator:
+    """Calculator class with methods to calculate"""
     @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
         """static method to calculate dot product."""
